@@ -11,13 +11,13 @@ You will need:
   * Magnolia CE (see below)
 
 Getting PHPCR
-~~~~~~~~~~~~~
+-------------
 
     curl -s http://getcomposer.org/installer | php --
     php composer.phar install
 
 Setting up Magnolia with Davex support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
   * Download [Magnolia CE](http://sourceforge.net/projects/magnolia/files/)
   * Download the [Magnolia Jackrabbit-Davex Module](http://ci.magnolia-cms.com/job/forge_magnolia-module-jackrabbit-davex/info.magnolia.davex%24magnolia-module-jackrabbit-davex/)
