@@ -8,5 +8,5 @@
         "php": ">=5.3.3",
         "jackalope/jackalope-jackrabbit": "1.0.*",
         "doctrine/phpcr-odm": "dev-master"
-    },
+    }
 }

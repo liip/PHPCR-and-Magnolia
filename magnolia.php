@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/vendor/composer/autoload';
+require_once __DIR__.'/vendor/autoload.php';
 
 $path = "/demo-project/about/subsection-articles";
 
