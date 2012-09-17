@@ -1,0 +1,12 @@
+{
+    "name": "liip/phpcr-and-magnolia",
+    "autoload": {
+        "psr-0": { "": "/" }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "jackalope/jackalope-jackrabbit": "1.0.*",
+        "doctrine/phpcr-odm": "dev-master"
+    },
+}
