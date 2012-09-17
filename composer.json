@@ -1,7 +1,7 @@
 {
     "name": "liip/phpcr-and-magnolia",
     "autoload": {
-        "psr-0": { "": "/" }
+        "classmap": ["./"]
     },
     "minimum-stability": "dev",
     "require": {

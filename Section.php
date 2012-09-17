@@ -1,7 +1,6 @@
 <?php
 
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCRODM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @PHPCRODM\Document
@@ -9,8 +8,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Section
 {
     /**
-     * to create the document at the specified location. read only for existing documents.
-     *
      * @PHPCRODM\Id
      */
     protected $path;
@@ -21,7 +18,6 @@ class Section
     public $node;
 
     /**
-     * @Assert\NotBlank
      * @PHPCRODM\String()
      */
     public $title;

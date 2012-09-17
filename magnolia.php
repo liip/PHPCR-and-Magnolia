@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+$loader = require_once __DIR__.'/vendor/autoload.php';
 
 $path = "/demo-project/about/subsection-articles";
 
@@ -20,15 +20,17 @@ $dms = $repository->login($creds, 'dms');
 // read from Magnolia website repository
 $node = $website->getNode("$path/article");
 $template = $node->getNode('MetaData')->getPropertyValue('mgnl:template');
+
+$subnode = $node->getNode("content");
+$content = $subnode->getNode('00')->getPropertiesValues();
+
 $imgNode = $dms->getNodeByIdentifier($content['imageDmsUUID'])->getNode('document');
 $img = $imgNode->getPropertiesValues();
 $img['jcr:data'] = base64_encode(stream_get_contents($imgNode->getProperty('jcr:data')->getBinary()));
 
 // writing to Magnolia website repository
-$subnode = $node->getNode("content");
 $subnode->setProperty('phpcr', 'was here!!');
 $website->save();
-$content = $subnode->getNode('00')->getPropertiesValues();
 
 // setting up optional PHPCR ODM data mapper
 $reader = new \Doctrine\Common\Annotations\AnnotationReader();
@@ -39,6 +41,10 @@ $metaDriver = new \Doctrine\ODM\PHPCR\Mapping\Driver\AnnotationDriver($reader, $
 
 $config = new \Doctrine\ODM\PHPCR\Configuration();
 $config->setMetadataDriverImpl($metaDriver);
+
+// setting up support for annotations when using PHCPR ODM
+\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+\Doctrine\Common\Annotations\AnnotationRegistry::registerFile(__DIR__.'/vendor/doctrine/phpcr-odm/lib/Doctrine/ODM/PHPCR/Mapping/Annotations/DoctrineAnnotations.php');
 
 // Setting up optional custom node to class mapper logic
 $customDocumentClassMapper = new \MagnoliaDocumentClassMapper(array(
