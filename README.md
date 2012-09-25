@@ -25,5 +25,5 @@ Setting up Magnolia with Davex support
   * Remove open file limitations; f.e. in bash, this will be ``ulimit -n 5000``
   * Start Magnolia with ``./magnolia_control.sh start && tail -f ../logs/catalina.out``
   * Check that the installation is complete by logging into the admin and frontend downloading any relevant modules
-  * Ensure the following is set in the configuration under ``server->IPConfig->allow-all->methods`` the following ``GET,POST,PROPFIND,PUT,DELETE,REPORT,HEAD``
+  * Ensure the following is set in the configuration under ``server->IPConfig->allow-all->methods`` the following ``GET,POST,PROPFIND,PUT,DELETE,REPORT,HEAD,SEARCH``
   * See also the [official Magnolia documentation](http://documentation.magnolia-cms.com)
